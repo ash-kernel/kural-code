@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="./public/logo.png" width="120" alt="Thirukkural API Logo" />
 </p>
 
@@ -91,3 +91,12 @@ curl -H "x-api-key: your_api_key_here" "http://localhost:3000/api/paid/kurals/ra
 
 ## Support & Access
 Need a Premium API Key? [Join our Discord Server](https://discord.gg/NebR4K7F) to request an access key!
+
+---
+
+## License
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
+
+You are free to use, modify, and distribute this software. However, if you modify the code and run it as a public network service (like an API), you must make your modified source code available to your users under the same AGPLv3 license.
+
+See the [LICENSE](LICENSE) file for more details.
