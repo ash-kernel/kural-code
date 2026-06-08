@@ -12,7 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
+
   title: "Kural API - Kural Code",
   description: "The fast, reliable API for the timeless wisdom of Thirukkural.",
   icons: {
