@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm Bronze / Copper tones extracted from the logo */
+  --color-brand: #c78f4b; 
+  --color-brand-hover: #a16c31; 
+  
+  /* Deep warm dark backgrounds instead of cold navy */
+  --color-bg: #14100c; 
+  --color-panel: #1f1913; 
+  --color-panel-border: #3b2d20;
+  
+  --color-danger: #ef4444;
+  --color-success: #10b981;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: #fff9de; /* The exact cream/ivory color from the logo */
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
