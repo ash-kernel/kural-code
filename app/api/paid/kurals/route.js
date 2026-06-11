@@ -1,11 +1,8 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/mongodb';
-import Kural from '@/models/Kural';
+import { getKurals } from '@/lib/kuralData';
 import { enforcePaidAuth } from '@/lib/auth';
 
 export async function GET(req) {
-  await dbConnect();
-
   const auth = await enforcePaidAuth(req);
   if (!auth.authorized) {
     return NextResponse.json({ error: auth.error }, { status: auth.status });
@@ -13,19 +10,10 @@ export async function GET(req) {
 
   const page = parseInt(req.nextUrl.searchParams.get('page')) || 1;
   const limit = parseInt(req.nextUrl.searchParams.get('limit')) || 10;
-  const skip = (page - 1) * limit;
 
   try {
-    const kurals = await Kural.find().sort({ Number: 1 }).skip(skip).limit(limit);
-    const total = await Kural.countDocuments();
-
-    return NextResponse.json({
-      data: kurals,
-      page,
-      limit,
-      total,
-      totalPages: Math.ceil(total / limit)
-    });
+    const result = getKurals(page, limit);
+    return NextResponse.json(result);
   } catch (err) {
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }

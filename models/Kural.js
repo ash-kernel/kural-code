@@ -14,4 +14,4 @@ const kuralSchema = new mongoose.Schema({
   transliteration2: { type: String, required: true }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Kural', kuralSchema);
+module.exports = mongoose.models.Kural || mongoose.model('Kural', kuralSchema);
